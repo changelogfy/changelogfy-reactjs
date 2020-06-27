@@ -1,16 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-const promise = new Promise((resolve, reject) => {
-  const script = document.createElement('script')
-  script.src = 'https://widget.changelogfy.com/index.js'
-  script.id = 'changelogfy-script'
-  script.setAttribute('async', true)
-  document.head.appendChild(script)
-  script.onload = resolve // Resolve when loaded
-  script.onerror = reject
-})
-
 export const Changelogfy = ({
   selector,
   app_id,
@@ -21,16 +11,28 @@ export const Changelogfy = ({
   custom_data = null,
   children
 }) => {
-  async function getData() {
+  const loadScript = () => {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = 'https://widget.changelogfy.com/index.js'
+      script.id = 'changelogfy-script'
+      script.setAttribute('async', true)
+      document.head.appendChild(script)
+      script.onload = resolve
+      script.onerror = reject
+    })
+  }
+
+  const start = async () => {
     try {
-      await promise
+      await loadScript()
       changelogfy.destroy()
-      changelogfy.init(obj)
+      changelogfy.init(data)
     } catch (error) {
       console.log(error.response)
     }
   }
-  const obj = {
+  const data = {
     selector,
     app_id,
     init_badge,
@@ -42,12 +44,12 @@ export const Changelogfy = ({
     }
   }
   useEffect(() => {
-    getData()
+    start()
 
     return () => {
       /* global changelogfy */
       changelogfy.destroy()
-      changelogfy.init(obj)
+      changelogfy.init(data)
     }
   })
 

@@ -9,13 +9,17 @@ const App = () => {
       <button className='changelogfy-icon'>
         Test
         <Changelogfy
-          app_id='af12f992-0a0c-4cdf-8144-89af158c39e2'
+          app_id='INSERT_YOUR_APP_ID_HERE'
           selector='.changelogfy-icon'
-          user_id='1231231423'
-          user_name='Paulo 12321313'
-          user_email='paulO@123.com.br'
-          init_badge={true}
-          custom_data={{ Key: 'Value' }}
+          user_id='af12f993-1a0d-3cde-4144-89af158c39e2'
+          user_name='Paulo Castellano'
+          user_email='paulo@changelogfy.com'
+          custom_data={{
+            JobRole: 'CEO',
+            Plan: 'Pro',
+            Teammates: 4,
+            MonthlySpend: '50 USD'
+          }}
         />
       </button>
     </div>

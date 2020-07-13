@@ -5,6 +5,7 @@
   "description": "Changelogfy is a Software and Product Release Notes Tool",
   "author": "Changelogfy",
   "license": "MIT",
+  "homepage": "https://changelogfy.com",
   "repository": "https://github.com/changelogfy/changelogfy-reactjs",
   "keywords": [
     "changelogfy",

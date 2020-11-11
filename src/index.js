@@ -8,6 +8,7 @@ export const Changelogfy = ({
   user_id = null,
   user_name = null,
   user_email = null,
+  is_following,
   custom_data = null,
   children
 }) => {
@@ -40,6 +41,7 @@ export const Changelogfy = ({
       user_id,
       user_name,
       user_email,
+      is_following,
       custom_data
     }
   }
@@ -63,5 +65,6 @@ Changelogfy.propTypes = {
   user_id: PropTypes.string,
   user_name: PropTypes.string,
   user_email: PropTypes.string,
+  is_following: PropTypes.bool,
   custom_data: PropTypes.object
 }
